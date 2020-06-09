@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import{Link} from "react-router-dom"
 class Header extends Component {
     state = {  }
     render() { 
@@ -7,8 +8,8 @@ class Header extends Component {
               <p>movie header</p>
               <textarea>movie search bar</textarea>
               <ul className="header-navbar">
-                  <li>movie</li>
-                  <li>login</li>
+                  <Link to='/movies'><li>movie</li></Link>
+                  <Link to='/login'><li>login</li></Link>
               </ul>
             </div>
          );

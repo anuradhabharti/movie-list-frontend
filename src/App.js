@@ -13,7 +13,7 @@ function App() {
     <Router>
     <div className="App">
       <Header/>
-      <Route path='/' exact component={MovieList}/>
+      <Route path='/movies' exact component={MovieList}/>
       {/* <Route path='/movie' exact component={Movie}/> */}
     </div>
     </Router>
