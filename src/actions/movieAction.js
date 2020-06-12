@@ -4,10 +4,14 @@ import { FETCH_NOWPLAYING,
 
 export const fetchNowplayingMovies= () => (dispatch) => {
   console.log("fetch topten")
-  fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=46cb0826bc9d924445bc90903e183ebf&language=en-US&page=2")
-      .then(res=>res.json())
-      .then(movie=>dispatch({
-         type: FETCH_NOWPLAYING,
-         payload: movie.results,
+  fetch("/movies-app/movies",
+      { 
+         method:"GET"
+      })
+    .then(res=>res.json())
+    .then(movie=>dispatch({
+         type:FETCH_NOWPLAYING,
+         payload:movie
     })) 
+    .catch(err=>console.log(err,"err of fetch now playing"))
 };

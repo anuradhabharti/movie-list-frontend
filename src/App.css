@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image: url(https://harthouse.ca/assets/images/uploads/theatre-shows/hht-banner-season-default-duo.jpg);
+  background-position: center;
+  background-size:cover;
+  width: 100%;
+  height: 125em;
+/* z-index: -2; */
 }
 
 .App-logo {
@@ -14,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #110516;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -42,4 +48,53 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.rating-btn{
+  border-radius: 50%;
+}
+.movie-poster{
+  size:100%;
+  width: 100%;
+  height: 310px;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+}
+.movie-card-footer{
+  display:flex;
+  color:rgb(248, 239, 239);
+  background-color:rgb(15, 14, 14);
+  height:6em;
+  justify-content: space-around;
+  align-items: center;
+}
+.container{
+  
+}
+.title{
+  text-align: start;
+  /* font-size:1.1em; */
+
+}
+.release-date{
+  text-align: start;
+  /* font-size: .85em; */
+}
+
+.login-form{
+    background-color: rgba(28, 24, 36, 0.561);
+    border-radius: 8px;
+    color: #fff;
+    max-width: 350px;
+    min-height: 400px;
+    padding: 20px;
+    margin: 7% 34%;
+   
+  
+}
+.register-form{
+  text-align: start;
+}
+.fas{
+  background-color: #fff;
 }

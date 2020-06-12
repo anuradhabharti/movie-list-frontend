@@ -1,7 +1,7 @@
 import {FETCH_NOWPLAYING} from '../actions/types'
 
 const initialState={
-    nowPlayingMovies:{}
+    nowPlayingMovies:[]
 }
 export default function (state = initialState, action) {
     switch (action.type) {

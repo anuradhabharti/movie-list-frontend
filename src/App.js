@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import Header from './components/Header'
+import LoginForm from './components/LoginForm'
+import  RegisterForm from'./components/RegisterForm'
 import './App.css';
 import MovieList from './components/MovieList'
 import {BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -13,8 +15,9 @@ function App() {
     <Router>
     <div className="App">
       <Header/>
-      <Route path='/movies' exact component={MovieList}/>
-      {/* <Route path='/movie' exact component={Movie}/> */}
+      <Route path='/' exact component={MovieList}/>
+      <Route path='/login' exact component={LoginForm}/>
+      <Route path='/register' exact component={RegisterForm}/>
     </div>
     </Router>
     </Provider>
