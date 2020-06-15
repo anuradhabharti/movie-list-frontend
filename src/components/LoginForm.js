@@ -20,8 +20,8 @@ class LoginForm extends Component {
               </div>
              
               </form>
-              <p>Not an user?
-                  <Link to='/register'><span>register account</span></Link></p>
+              <p>Not an User?
+                  <Link to='/register'><span> Create account</span></Link></p>
             </div>
          );
     }

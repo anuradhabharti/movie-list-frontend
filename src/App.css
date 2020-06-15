@@ -8,17 +8,13 @@
 /* z-index: -2; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+/* header  */
 .App-header {
   background-color: #110516;
   display: flex;
@@ -34,22 +30,36 @@
   list-style: none;
 
 }
+.movie-logo-img{
+  width: 80px;
+  height: 65px;
+  margin-left: 0px;
+}
+
+/* movie list */
+/* movie nav bar */
+.movie-list-navbar{
+  display: flex;
+  justify-content: space-around;
+  width: fit-content;
+  margin-left: 3.2em;
+  margin-top: 2em;
+  border-radius: .5em;
+
+}
+.movie-nav-btn{
+  color: #fff;
+  background-color: rgb(26, 10, 10);
+  border:rgb(71, 60, 60) .02px solid;
+  padding: 8px 40px;
+}
 .movie-list-container{
-  height:80vh ;
+  /* height:100vh ; */
 }
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+} */
+/* movie card */
 .rating-btn{
   border-radius: 50%;
 }
@@ -67,9 +77,11 @@
   height:6em;
   justify-content: space-around;
   align-items: center;
-}
-.container{
   
+}
+.release-title-box{
+  text-align: start;
+  margin-left: 0em;
 }
 .title{
   text-align: start;
@@ -97,4 +109,12 @@
 }
 .fas{
   background-color: #fff;
+}
+/* footer */
+.movie-list-footer{
+  /* margin-bottom: 4em; */
+  width:100%;
+}
+.page-btn{
+  color:#fff;
 }
