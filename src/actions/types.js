@@ -1,4 +1,3 @@
-export const FETCH_NOWPLAYING = 'FETCH_NOWPALYING';
-export const FETCH_POPULAR = 'FETCH_POPULAR';
-export const FETCH_UPCOMING = 'FETCH_UPCOMING';
+export const FETCH_TOKEN = 'FETCH_TOKEN'
 export const FETCH_MOVIES = 'FETCH_MOVIES'
+export const FETCH_USER = 'FETCH_USER'

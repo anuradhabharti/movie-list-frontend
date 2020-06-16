@@ -5,7 +5,7 @@ import {connect} from "react-redux"
 import{Link} from "react-router-dom"
 import {fetchMovies} from '../actions/movieAction'
 class MovieList extends Component {
-    state = {show:"nowplaying",page:1 }
+    state = {border:"",page:1 }
     componentDidMount(){
        this.props.fetchMovies(this.props.match.params.movie_type,this.props.match.params.page)
     }
@@ -25,12 +25,12 @@ class MovieList extends Component {
         console.log(this.props,this.props.match.params.page,"movie")
         return ( <div className="container-fluid">
             <div className="movie-list-navbar">
-            <Link to="/movies/now_playing/1"><button className={`movie-nav-btn `} onClick={()=>this.giveNowPlayingMovies()}checked="true">Now playing</button></Link>
+            <Link to="/movies/now_playing/1"><button className={`movie-nav-btn now-playing-btn`}  onClick={()=>this.giveNowPlayingMovies()}checked="true">Now playing</button></Link>
             <Link to="/movies/upcoming/1"> <button className={`movie-nav-btn `}  onClick={()=>this.giveUpcomingMovies()}>Upcoming</button></Link>
             <Link to="/movies/popular/1">  <button className={`movie-nav-btn `} onClick={()=>this.givePopularMovies()}>Popular</button></Link>
             </div>
             <div className="row row-cols-5 m-5 movie-list-container">
-              {this.props.nowPlayingMovies.map((movie,index)=>
+              {this.props.movies.map((movie,index)=>
                     <MovieCard
                     key={movie.movie_id}
                     id={movie.movie_id}
@@ -59,7 +59,7 @@ MovieList.propsType=({
    
  })
  const mapStatetoProps=state=>({
-     nowPlayingMovies:state.movies.movies,
+     movies:state.movies.movies,
   
  })
  

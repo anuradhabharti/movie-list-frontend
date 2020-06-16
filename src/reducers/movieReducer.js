@@ -1,10 +1,8 @@
-import {FETCH_NOWPLAYING, FETCH_POPULAR,FETCH_UPCOMING,FETCH_MOVIES} from '../actions/types'
+import {FETCH_MOVIES, FETCH_TOKEN, FETCH_USER} from '../actions/types'
 
 const initialState={
-    nowPlayingMovies:[],
-    popularMovies:[],
-    upcomingMovies:[],
-    movies:[]
+    movies:[],
+
 }
 export default function (state = initialState, action) {
     switch (action.type) {
@@ -13,16 +11,16 @@ export default function (state = initialState, action) {
               ...state,
               movies:action.payload
            }
-           case FETCH_POPULAR:
-           return{
-              ...state,
-              popularMovies:action.payload
-           }
-           case FETCH_UPCOMING:
+           case FETCH_TOKEN:
             return{
                ...state,
-               upcomingMovies:action.payload
+               token:action.payload
             }
+            case FETCH_USER:
+               return{
+                  ...state,
+                  user:action.payload
+               }
            default:
                return state;
      }

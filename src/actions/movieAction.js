@@ -1,4 +1,4 @@
-import { FETCH_NOWPLAYING,FETCH_POPULAR, FETCH_UPCOMING,FETCH_MOVIES
+import { FETCH_TOKEN,FETCH_MOVIES, FETCH_USER
     } from './types';
 
 export const fetchMovies= (movie_type,page) => (dispatch) => {
@@ -14,3 +14,43 @@ export const fetchMovies= (movie_type,page) => (dispatch) => {
     })) 
     .catch(err=>console.log(err,"err of fetch now playing"))
 };
+
+export const loginUser= (user)=>(dispatch)=>{  
+  fetch('/movies-app/login',
+  {
+      method:"POST",
+      headers:{
+          "Accept":"application/json",
+          "Content-type":"application/json", 
+      },
+      body:JSON.stringify(user)
+  })
+  .then(res=>res.json())
+  .then(result=>{
+    console.log(result,"res")
+    return dispatch({
+    type:FETCH_TOKEN,
+    payload:result
+  })})
+  .catch(err=>err)
+}
+
+export const registerUser= (user)=>(dispatch)=>{  
+  fetch('/movies-app/register',
+  {
+      method:"POST",
+      headers:{
+          "Accept":"application/json",
+          "Content-type":"application/json", 
+      },
+      body:JSON.stringify(user)
+  })
+  .then(res=>res.json())
+  .then(result=>{
+    console.log(result,"res")
+    return dispatch({
+    type:FETCH_USER,
+    payload:result
+  })})
+  .catch(err=>err)
+}
