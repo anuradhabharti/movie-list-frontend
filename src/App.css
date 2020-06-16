@@ -4,7 +4,8 @@
   background-position: center;
   background-size:cover;
   width: 100%;
-  height: 125em;
+  max-height: fit-content;
+  min-height:100vh;
 /* z-index: -2; */
 }
 
@@ -53,20 +54,17 @@
   border:rgb(71, 60, 60) .02px solid;
   padding: 8px 40px;
 }
-.movie-list-container{
-  /* height:100vh ; */
-}
-/* .App-link {
-  color: #61dafb;
-} */
+
 /* movie card */
 .rating-btn{
   border-radius: 50%;
+  width: 2.65em;
+  border: rgb(95, 32, 21) solid 1px;
+  margin-bottom: 20%;
 }
 .movie-poster{
-  size:100%;
   width: 100%;
-  height: 310px;
+  height: 280px;
   border-top-left-radius: 0.3em;
   border-top-right-radius: 0.3em;
 }
@@ -75,22 +73,22 @@
   color:rgb(248, 239, 239);
   background-color:rgb(15, 14, 14);
   height:6em;
-  justify-content: space-around;
-  align-items: center;
-  
+  justify-content: space-between;
+  padding: 8px 5px;
 }
 .release-title-box{
   text-align: start;
-  margin-left: 0em;
+  padding: 4px;
 }
 .title{
   text-align: start;
-  /* font-size:1.1em; */
-
+  color:#fff;
+  margin-bottom:5px;
+ 
 }
 .release-date{
   text-align: start;
-  /* font-size: .85em; */
+  
 }
 
 .login-form{
@@ -101,7 +99,7 @@
     min-height: 400px;
     padding: 20px;
     margin: 7% 34%;
-   
+
   
 }
 .register-form{
@@ -112,9 +110,13 @@
 }
 /* footer */
 .movie-list-footer{
-  /* margin-bottom: 4em; */
+  margin-top: 1em;
   width:100%;
+  padding-bottom: 2em;
 }
 .page-btn{
   color:#fff;
+  font-size: 1.32em;
+  padding: 5px 22px;
+  font-weight: 100em;
 }

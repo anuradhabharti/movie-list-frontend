@@ -3,24 +3,23 @@ import MovieCard from './MovieCard'
 import propsType from 'prop-types'
 import {connect} from "react-redux"
 import{Link} from "react-router-dom"
-import {fetchNowplayingMovies,fetchPopularMovies,fetchUpcomingMovies} from '../actions/movieAction'
+import {fetchMovies} from '../actions/movieAction'
 class MovieList extends Component {
     state = {show:"nowplaying",page:1 }
     componentDidMount(){
-       this.props.fetchNowplayingMovies(this.props.match.params.movie_type,this.props.match.params.page)
+       this.props.fetchMovies(this.props.match.params.movie_type,this.props.match.params.page)
     }
-    // componentDidUpdate(){
-    //     if(this.props.match.params.movie_type==="popular")
-    //     this.props.fetchNowplayingMovies(this.props.match.params.movie_type,this.props.match.params.page)
-    // }
     givePopularMovies(){
-        this.props.fetchNowplayingMovies("popular","1") 
+        this.props.fetchMovies("popular","1") 
     }
     giveUpcomingMovies(){
-        this.props.fetchNowplayingMovies("upcoming","1")
+        this.props.fetchMovies("upcoming","1")
     }
     giveNowPlayingMovies(){
-        this.props.fetchNowplayingMovies("now_playing","1") 
+        this.props.fetchMovies("now_playing","1") 
+    }
+    giveMoviesOfParticularPage(page){
+        this.props.fetchMovies(this.props.match.params.movie_type,page)
     }
     render() { 
         console.log(this.props,this.props.match.params.page,"movie")
@@ -42,62 +41,26 @@ class MovieList extends Component {
                     posterPath={movie.poster_path}
                     />  
                 )}
-                    {/* {this.state.page===2&&this.state.show==="nowplaying"&&this.props.nowPlayingMovies.slice(20,40).map((movie,index)=>
-                    <MovieCard
-                    key={movie.movie_id}
-                    id={movie.movie_id}
-                    title={movie.title}
-                    description={movie.description}
-                    rating={movie.rating}
-                    releaseDate={movie.release_date}
-                    posterPath={movie.poster_path}
-                    />  
-                )}
-                
-                 {this.state.show==="popular"&&this.props.popularMovies.map((movie,index)=>
-                    <MovieCard
-                    key={movie.movie_id}
-                    id={movie.movie_id}
-                    title={movie.title}
-                    description={movie.description}
-                    rating={movie.rating}
-                    releaseDate={movie.release_date}
-                    posterPath={movie.poster_path}
-                    />  
-                )}
-                 {this.state.show==="upcoming"&&this.props.upcomingMovies.map((movie,index)=>
-                    <MovieCard
-                    key={movie.movie_id}
-                    id={movie.movie_id}
-                    title={movie.title}
-                    description={movie.description}
-                    rating={movie.rating}
-                    releaseDate={movie.release_date}
-                    posterPath={movie.poster_path}
-                    />  
-                )} */}
             </div>
             <div className="movie-list-footer">
-               <button className="page-btn btn btn-lg p-3" onClick={()=>this.setState({page:1})}>1</button>
-               <button className="page-btn btn p-3" onClick={()=>this.setState({page:2})}>2</button>
-               <button className="page-btn btn p-3"onClick={()=>this.setState({page:3})}>3</button>
-               <button className="page-btn btn p-3"onClick={()=>this.setState({page:4})}>4</button>
-               <button className="page-btn btn p-3"onClick={()=>this.setState({page:5})}>5</button>
+               <button className="page-btn btn " onClick={()=>this.giveMoviesOfParticularPage(1)}>1</button>
+               <button className="page-btn btn " onClick={()=>this.giveMoviesOfParticularPage(2)}>2</button>
+               <button className="page-btn btn "onClick={()=>this.giveMoviesOfParticularPage(3)}>3</button>
+               <button className="page-btn btn "onClick={()=>this.giveMoviesOfParticularPage(4)}>4</button>
+               <button className="page-btn btn "onClick={()=>this.giveMoviesOfParticularPage(5)}>5</button>
             </div>
         </div> );
     }
 }
 
 MovieList.propsType=({
-  fetchNowplayingMovies:propsType.func.isRequired,
+  fetchMovies:propsType.func.isRequired,
   nowPlayingMovies:propsType.array.isRequired,
    
  })
  const mapStatetoProps=state=>({
-     nowPlayingMovies:state.movies.nowPlayingMovies,
-     popularMovies:state.movies.popularMovies,
-     upcomingMovies:state.movies.upcomingMovies,
+     nowPlayingMovies:state.movies.movies,
   
  })
  
- export default connect(mapStatetoProps,{fetchNowplayingMovies,fetchUpcomingMovies,fetchPopularMovies})(MovieList);
+ export default connect(mapStatetoProps,{fetchMovies})(MovieList);

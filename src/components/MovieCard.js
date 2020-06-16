@@ -3,8 +3,9 @@ import {Link} from "react-router-dom"
 import noImage from "../No_Image_Available.png";
 function MovieCard(props) {
   return (
-    <Link to={`/movie/${props.id}`}><div className="col movie-card p-2">
-      {!props.posterPath && (
+  <div className="col movie-card p-2">
+        <Link to={`/movie/${props.id}`}>
+    {!props.posterPath && (
         <img className="movie-poster" src={noImage} alt={props.title} />
       )}
       {props.posterPath && (
@@ -14,10 +15,13 @@ function MovieCard(props) {
           alt={props.title}
         />
       )}
+      </Link>
       <div className="movie-card-footer">
-        <div className="release-title-box ml-0">
-          <p className="title ml-0.">{props.title}</p>
-          <p className="release-date small mb-0">
+        <div className="release-title-box">
+        <Link to={`/movie/${props.id}`}>
+          <p className="title">{props.title}</p>
+          </Link>
+          <p className="release-date small">
             {props.releaseDate.split("-").reverse().join("/")}
           </p>
         </div>
@@ -28,7 +32,7 @@ function MovieCard(props) {
         )}
       </div>
     </div>
-    </Link>
+
   );
 }
 

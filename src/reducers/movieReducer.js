@@ -1,16 +1,17 @@
-import {FETCH_NOWPLAYING, FETCH_POPULAR,FETCH_UPCOMING} from '../actions/types'
+import {FETCH_NOWPLAYING, FETCH_POPULAR,FETCH_UPCOMING,FETCH_MOVIES} from '../actions/types'
 
 const initialState={
     nowPlayingMovies:[],
     popularMovies:[],
-    upcomingMovies:[]
+    upcomingMovies:[],
+    movies:[]
 }
 export default function (state = initialState, action) {
     switch (action.type) {
-         case FETCH_NOWPLAYING:
+         case FETCH_MOVIES:
            return{
               ...state,
-              nowPlayingMovies:action.payload
+              movies:action.payload
            }
            case FETCH_POPULAR:
            return{
