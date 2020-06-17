@@ -5,7 +5,7 @@ import {connect} from "react-redux"
 import{Link} from "react-router-dom"
 import {fetchMovies} from '../actions/movieAction'
 class MovieList extends Component {
-    state = {border:"",page:1 }
+    state = {isClicked:true,page:1 }
     componentDidMount(){
        this.props.fetchMovies(this.props.match.params.movie_type,this.props.match.params.page)
     }

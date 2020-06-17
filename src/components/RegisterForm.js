@@ -2,35 +2,17 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import propsType from 'prop-types'
 import {connect} from "react-redux"
-import {registerUser} from "../actions/movieAction"
+import {registerUser} from "../actions/userAction"
 
 // import {registerUser} from "../assets/assets"
 class RegisterForm extends Component {
     state = { 
         
      }
-    // registerUser (){
-    //     console.log(this.state)
-        
-    //     fetch('/movies-app/register',
-    //     {
-    //         method:"POST",
-    //         headers:{
-    //             "Accept":"application/json",
-    //             "Content-type":"application/json",
-              
-    //         },
-    //         body:JSON.stringify(this.state)
-    //     })
-    //     .then(res=>res.json())
-    //     .then(result=>console.log(result))
-    //     .catch(err=>err)
-    // }
     render() { 
         return ( 
             <div className="login-form">
                 <h3 className="login-title mx-auto">Create account</h3>
-              {/* <form className='register-form'> */}
               <div className="form-group m-4">
                   <label for='name'>Name</label>
                   <input  className="form-control" 
@@ -58,10 +40,12 @@ class RegisterForm extends Component {
                    ></input>
               </div>
               <div className="form-group m-4">
-              <button className="btn-round btn btn-danger btn-block" onClick={()=>this.props.registerUser(this.state)}>CREATE ACCOUNT</button>
+                <button className="btn-round btn btn-danger btn-block" 
+                 onClick={()=>this.props.registerUser(this.state,this.props)}
+                 >
+                  CREATE ACCOUNT
+                </button>
               </div>
-             
-              {/* </form> */}
               <p>Already User?
                   <Link to='/login'><span> Login</span></Link></p>
             </div>
@@ -74,7 +58,7 @@ RegisterForm.propsType=({
      
    })
    const mapStatetoProps=state=>({
-       user:state.movies.user,
+       user:state.user.user,
     
    })
    

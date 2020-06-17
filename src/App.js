@@ -5,9 +5,11 @@ import  RegisterForm from'./components/RegisterForm'
 import Movie from './components/Movie'
 import './App.css';
 import MovieList from './components/MovieList'
-import {BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Watchlist from './components/Watchlist'
+import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store from './store'
 import {Provider} from 'react-redux'
+import PrivateRoute from './routes/PrivateRouter'
 
 function App() {
   return (
@@ -15,10 +17,14 @@ function App() {
     <Router>
     <div className="App">
       <Header/>
+      <Switch>
       <Route path='/movies/:movie_type/:page' exact component={MovieList}/>
       <Route path='/movie/:id' exact component={Movie}/>
       <Route path='/login' exact component={LoginForm}/>
       <Route path='/register' exact component={RegisterForm}/>
+      <PrivateRoute path='/watchlist' exact component={Watchlist}/>
+      <Route path='*' component={()=>'404 NOT FOUND'}/>
+      </Switch>
     </div>
     </Router>
     </Provider>

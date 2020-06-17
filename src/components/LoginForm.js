@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import propsType from 'prop-types'
 import {connect} from "react-redux"
-import {loginUser} from "../actions/movieAction"
+import {loginUser} from "../actions/userAction"
 
 class LoginForm extends Component {
     state = {  }
@@ -32,7 +32,7 @@ class LoginForm extends Component {
               </div>
               <div className="form-group m-4">
               <button className="btn-round btn btn-danger btn-block"
-                 onClick={()=>this.props.loginUser(this.state)}
+                 onClick={()=>this.props.loginUser(this.state,this.props)}
                  >
                  LOGIN
               </button>
@@ -52,7 +52,7 @@ LoginForm.propsType=({
      
    })
    const mapStatetoProps=state=>({
-       token:state.movies.token,
+       token:state.user.token,
     
    })
    

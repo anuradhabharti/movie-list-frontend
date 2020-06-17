@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import {connect} from "react-redux"
 import movieLogo from "../Movie-Studio-icon.png"
 class Header extends Component {
   state = {};
@@ -17,21 +18,32 @@ class Header extends Component {
             aria-label="Search by movie title"
           />
         </div>
-
+        {this.props.isAuthenticated&&
         <ul className="header-navbar">
-          {/* <Link to="/watchlist">
-            <li>watchlist</li>
-          </Link> */}
+          <Link to="/watchlist">
+            <li>Watchlist</li>
+          </Link>
+          <Link to="/signout">
+            <li>Logout</li>
+          </Link>
+          </ul>}
+          {!this.props.isAuthenticated&&
+          <ul className="header-navbar">
           <Link to="/movies/now_playing/1">
-            <li>movie</li>
+            <li>Movie</li>
           </Link>
           <Link to="/login">
-            <li>login</li>
+            <li>Login</li>
           </Link>
-        </ul>
+        </ul>}
       </div>
     );
   }
 }
+const mapStatetoProps=state=>({
+  isAuthenticated:!!state.user.token,
 
-export default Header;
+})
+export default connect(mapStatetoProps)(Header);
+
+
