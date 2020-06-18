@@ -109,6 +109,57 @@
 .fas{
   background-color: #fff;
 }
+/* movie page  */
+.moviepage-container{
+  text-align: start;
+  margin: 0 80px;
+  margin-top: 40px;
+}
+.movie-poster-on-moviepage{
+  height: 400px;
+  width: 280px;
+}
+.description-moviepage{
+  color: #fff;
+  background-color: rgba(28, 29, 36, 0.486);
+}
+.title-watchlist-moviepage{
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 15px;
+  justify-items: flex-start;
+}
+.watchlist-btn-moviepage{
+   align-self: start;
+}
+.description-genre-moviepage{
+  padding: 20px;
+  /* padding-left: 20px; */
+
+}
+.title-moviepage{
+  color: rgba(255, 0, 212, 0.842);
+  text-align: start;
+}
+.rating-moviepage{
+  margin-top: 10px;
+  border-radius: 50%;
+  width: 3.1em;
+  border: rgb(63, 16, 8) solid 2px;
+  margin-bottom: 1.9em;
+}
+.actor-heading{
+  color: #fff;
+ font-style: initial;
+}
+.gallary-heading{
+  color: #fff;
+  font-style: initial;
+}
+.actor-moviepage{
+  background-color: #fff;
+  height: 300px;
+}
 /* footer */
 .movie-list-footer{
   margin-top: 1em;

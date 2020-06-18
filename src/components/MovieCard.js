@@ -10,6 +10,7 @@ function MovieCard(props) {
       )}
       {props.posterPath && (
         <img
+
           className="movie-poster"
           src={`https://image.tmdb.org/t/p/w300/${props.posterPath}`}
           alt={props.title}
