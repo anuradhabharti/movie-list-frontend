@@ -20,6 +20,9 @@ class Header extends Component {
         </div>
         {this.props.isAuthenticated&&
         <ul className="header-navbar">
+           <Link to="/movies/now_playing/1">
+            <li>Movie</li>
+           </Link>
           <Link to="/watchlist">
             <li>Watchlist</li>
           </Link>

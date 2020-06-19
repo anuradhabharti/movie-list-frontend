@@ -10,7 +10,8 @@ export default function (state = initialState, action) {
            case FETCH_TOKEN:
             return{
                ...state,
-               token:action.payload
+               token:action.payload.token,
+               user:action.payload.user[0]
             }
             case FETCH_USER:
                return{

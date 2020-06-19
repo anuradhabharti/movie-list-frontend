@@ -1,7 +1,8 @@
-import {FETCH_MOVIES, FETCH_TOKEN, FETCH_USER} from '../actions/types'
+import {FETCH_MOVIES, FETCH_WATCHLIST,ADD_MOVIE,REMOVE_MOVIE} from '../actions/types'
 
 const initialState={
     movies:[],
+    watchlist:[]
 
 }
 export default function (state = initialState, action) {
@@ -11,16 +12,21 @@ export default function (state = initialState, action) {
               ...state,
               movies:action.payload
            }
-           case FETCH_TOKEN:
+           case FETCH_WATCHLIST:
             return{
                ...state,
-               token:action.payload
+               watchlist:action.payload
             }
-            case FETCH_USER:
-               return{
-                  ...state,
-                  user:action.payload
-               }
+            case ADD_MOVIE:
+            return{
+               ...state,
+               watchlist:[...state.watchlist,action.payload]
+            }
+            case REMOVE_MOVIE:
+            return{
+               ...state,
+               watchlist:[...state.watchlist.filter(movie=>movie.movie_id===action.payload.movie_id)]
+            }
            default:
                return state;
      }
