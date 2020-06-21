@@ -6,6 +6,7 @@ import Movie from './components/Movie'
 import './App.css';
 import MovieList from './components/MovieList'
 import Watchlist from './components/Watchlist'
+import SearchMovies from './components/SearchMovies'
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store from './store'
 import {Provider} from 'react-redux'
@@ -22,6 +23,7 @@ function App() {
       <Route path='/movie/:id' exact component={Movie}/>
       <Route path='/login' exact component={LoginForm}/>
       <Route path='/register' exact component={RegisterForm}/>
+      <Route path='/search' exact component={SearchMovies}/>
       <PrivateRoute path='/watchlist' exact component={Watchlist}/>
       <Route path='*' component={()=>'404 NOT FOUND'}/>
       </Switch>

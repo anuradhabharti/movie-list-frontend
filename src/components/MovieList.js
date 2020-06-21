@@ -23,14 +23,30 @@ class MovieList extends Component {
     }
     render() { 
         console.log(this.props,this.props.match.params.page,"movie")
-        return ( <div className="container-fluid">
+        if(this.props.searchMovies)
+        return ( <div className="container-fluid">  
+            <h2 className="search-heading">Search Movies...</h2>
+             <div className="row row-cols-5 pl-5 pr-5 pb-5 movie-list-container">
+             {this.props.searchMovies.map(movie=>
+                <MovieCard
+                    key={movie.movie_id}
+                    id={movie.movie_id}
+                    title={movie.title}
+                    description={movie.description}
+                    rating={movie.rating}
+                    releaseDate={movie.release_date}
+                    posterPath={movie.poster_path}
+                    /> )}
+                    </div>
+                    </div> );
+        else return( <div className="container-fluid">  
             <div className="movie-list-navbar">
             <Link to="/movies/now_playing/1"><button className={`movie-nav-btn now-playing-btn`}  onClick={()=>this.giveNowPlayingMovies()}checked="true">Now playing</button></Link>
             <Link to="/movies/upcoming/1"> <button className={`movie-nav-btn `}  onClick={()=>this.giveUpcomingMovies()}>Upcoming</button></Link>
             <Link to="/movies/popular/1">  <button className={`movie-nav-btn `} onClick={()=>this.givePopularMovies()}>Popular</button></Link>
             </div>
             <div className="row row-cols-5 m-5 movie-list-container">
-              {this.props.movies.map((movie,index)=>
+              {this.props.movies.map((movie)=>
                     <MovieCard
                     key={movie.movie_id}
                     id={movie.movie_id}
@@ -49,7 +65,9 @@ class MovieList extends Component {
                <button className="page-btn btn "onClick={()=>this.giveMoviesOfParticularPage(4)}>4</button>
                <button className="page-btn btn "onClick={()=>this.giveMoviesOfParticularPage(5)}>5</button>
             </div>
+        
         </div> );
+
     }
 }
 
@@ -60,7 +78,7 @@ MovieList.propsType=({
  })
  const mapStatetoProps=state=>({
      movies:state.movies.movies,
-  
+     searchMovies:state.movies.search,
  })
  
  export default connect(mapStatetoProps,{fetchMovies})(MovieList);

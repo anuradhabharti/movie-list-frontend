@@ -26,7 +26,14 @@
 }
 .header-navbar{
   display: flex;
-  width: 180px;
+  width: 160px;
+  justify-content: space-between;
+  list-style: none;
+
+}
+.header-navbar-watchlist{
+  display: flex;
+  width: 250px;
   justify-content: space-between;
   list-style: none;
 
@@ -171,4 +178,16 @@
   font-size: 1.32em;
   padding: 5px 22px;
   font-weight: 100em;
+}
+/* my watchlist */
+.my-watchlist-title{
+  color: rgba(255, 255, 255, 0.911);
+  text-align: start;
+  padding: 20px;
+}
+/* search movies */
+.search-heading{
+  text-align: start;
+  color: #fff;
+  padding: 30px;
 }

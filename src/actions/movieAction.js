@@ -1,5 +1,5 @@
-import {FETCH_MOVIES,FETCH_WATCHLIST,ADD_MOVIE,REMOVE_MOVIE} from './types';
-
+import {FETCH_MOVIES,FETCH_WATCHLIST,ADD_MOVIE,REMOVE_MOVIE,SEARCH_MOVIE,ERASE_SEARCH} from './types';
+ import {Redirect} from 'react-router'
 export const fetchMovies= (movie_type,page) => (dispatch) => {
   console.log("fetch topten")
   fetch(`/movies-app/movies/${movie_type}/${page}`,
@@ -67,4 +67,21 @@ export const removeMovieInWatchlist= (userId,movie)=>(dispatch)=>{
     payload:movie
   })})
   .catch(err=>err)
+}
+export const searchMovie=(value,props)=>(dispatch)=>{
+  fetch(`/movies-app/search/${value}`)
+  .then(data=>data.json())
+  .then(res=>{
+    return dispatch({
+      type:SEARCH_MOVIE,
+      payload:res
+    })
+  })
+}
+
+export const eraseSearch=()=>(dispatch)=>{
+    return dispatch({
+      type:SEARCH_MOVIE,
+      payload:0
+    })
 }

@@ -10,6 +10,7 @@ class Watchlist extends Component {
     }
     render() { 
         return (<div>
+            <h3 className="my-watchlist-title">My Watchlist Movies</h3>
             {
                 this.props.watchlist.map(movie=> 
                  <MovieCard
