@@ -11,6 +11,7 @@ class Watchlist extends Component {
     render() { 
         return (<div>
             <h3 className="my-watchlist-title">My Watchlist Movies</h3>
+            <div className="row row-cols-5 p-5 movie-list-container">
             {
                 this.props.watchlist.map(movie=> 
                  <MovieCard
@@ -23,6 +24,7 @@ class Watchlist extends Component {
                     posterPath={movie.poster_path}
                     /> )
             }
+            </div>
         </div>  );
     }
 }
