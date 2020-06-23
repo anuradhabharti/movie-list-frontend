@@ -1,4 +1,5 @@
-import { FETCH_TOKEN, FETCH_USER} from './types';
+import { FETCH_TOKEN, FETCH_USER,LOGOUT_USER} from './types';
+
 export const loginUser= (user,props)=>(dispatch)=>{  
     fetch('/movies-app/login',
     {
@@ -13,6 +14,10 @@ export const loginUser= (user,props)=>(dispatch)=>{
     .then(result=>{
       console.log(result,"res")
       props.history.push("/movies/now_playing/1")
+      if(result.token)
+      {  alert("Successfull logged")
+        props.fetchwatchlistMovies(result.user.id,result.token)
+      }
       return dispatch({
       type:FETCH_TOKEN,
       payload:result
@@ -31,11 +36,18 @@ export const loginUser= (user,props)=>(dispatch)=>{
         body:JSON.stringify(user)
     })
     .then(res=>res.json())
-    .then(result=>{
+    .then(result=>{ 
        props.history.push("/login")
       return dispatch({
       type:FETCH_USER,
       payload:result
     })})
     .catch(err=>err)
+  }
+
+  export const logOut=()=>(dispatch)=>{
+    return dispatch({
+      type:LOGOUT_USER,
+      payload:{}
+    })
   }

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import propsType from 'prop-types'
 import {connect} from "react-redux"
 import {loginUser} from "../actions/userAction"
-
+import {fetchwatchlistMovies} from '../actions/movieAction'
 class LoginForm extends Component {
     state = {  }
     render() { 
@@ -11,7 +11,7 @@ class LoginForm extends Component {
         return ( 
             <div className="login-form">
                 <h3 className="login-title mx-auto">Login</h3>
-              {/* <form className='register-form'> */}
+              <div className='register-form'>
               <div className="form-group m-4">
                   <label for='email'>Email</label>
                   <input  className="form-control" 
@@ -30,6 +30,7 @@ class LoginForm extends Component {
                    onChange={(e)=>this.setState({password:e.target.value})}
                    ></input>
               </div>
+              </div>
               <div className="form-group m-4">
               <button className="btn-round btn btn-danger btn-block"
                  onClick={()=>this.props.loginUser(this.state,this.props)}
@@ -37,8 +38,6 @@ class LoginForm extends Component {
                  LOGIN
               </button>
               </div>
-             
-              {/* </form> */}
               <p>Not an User?
                   <Link to='/register'><span> Create Account</span></Link></p>
             </div>
@@ -56,4 +55,4 @@ LoginForm.propsType=({
     
    })
    
-export default connect(mapStatetoProps,{loginUser})(LoginForm);
+export default connect(mapStatetoProps,{loginUser,fetchwatchlistMovies})(LoginForm);

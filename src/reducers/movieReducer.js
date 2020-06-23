@@ -3,7 +3,7 @@ import {FETCH_MOVIES, FETCH_WATCHLIST,ADD_MOVIE,REMOVE_MOVIE,SEARCH_MOVIE,ERASE_
 const initialState={
     movies:[],
     watchlist:[],
-   
+    search:[]
 
 }
 export default function (state = initialState, action) {
@@ -20,7 +20,6 @@ export default function (state = initialState, action) {
             }
             case SEARCH_MOVIE:
                 return{
-                   ...state,
                    search:action.payload
                 }
             case ADD_MOVIE:

@@ -5,8 +5,11 @@ class SearchMovies extends Component {
     state = {  }
     render() { 
         return (<div>
-            <h2>Search Movies...</h2>
-            {this.props.searchMovies.map(movie=>
+            <h2 className="search-heading">Search Movies...</h2>
+            {this.props.searchMovies==='Not Found!'&&
+            <div className="searchNotFound"> Not Found!</div>}
+            <div className="row row-cols-5 p-5 movie-list-container">
+            {this.props.searchMovies!=='Not Found!'&&this.props.searchMovies.map(movie=>
                 <MovieCard
                     key={movie.movie_id}
                     id={movie.movie_id}
@@ -16,6 +19,7 @@ class SearchMovies extends Component {
                     releaseDate={movie.release_date}
                     posterPath={movie.poster_path}
                     /> )}
+            </div>
         </div>  );
     }
 }

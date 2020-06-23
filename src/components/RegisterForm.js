@@ -13,6 +13,7 @@ class RegisterForm extends Component {
         return ( 
             <div className="login-form">
                 <h3 className="login-title mx-auto">Create account</h3>
+              <div className="register-form">
               <div className="form-group m-4">
                   <label for='name'>Name</label>
                   <input  className="form-control" 
@@ -38,6 +39,7 @@ class RegisterForm extends Component {
                    type='password'
                    onChange={(e)=>this.setState({password:e.target.value})}
                    ></input>
+              </div>
               </div>
               <div className="form-group m-4">
                 <button className="btn-round btn btn-danger btn-block" 

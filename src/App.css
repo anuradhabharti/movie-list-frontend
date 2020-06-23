@@ -68,7 +68,7 @@
   border-radius: 50%;
   width: 2.65em;
   border: rgb(95, 32, 21) solid 1px;
-  margin-bottom: 20%;
+  margin-bottom: 25%;
 }
 .movie-poster{
   width: 100%;
@@ -80,9 +80,10 @@
   display:flex;
   color:rgb(248, 239, 239);
   background-color:rgb(15, 14, 14);
-  height:6em;
+  height:7em;
   justify-content: space-between;
   padding: 8px 5px;
+  max-height: fit-content;
 }
 .release-title-box{
   text-align: start;
@@ -91,11 +92,13 @@
 .title{
   text-align: start;
   color:#fff;
+  font-size: 14px;
   margin-bottom:5px;
  
 }
 .release-date{
   text-align: start;
+  font: .8em sans-serif;
   
 }
 /* login and register form */
@@ -107,7 +110,7 @@
     min-height: 400px;
     padding: 20px;
     margin: 2.5em 34%;
-
+   /* text-align: start; */
   
 }
 .register-form{
@@ -190,4 +193,17 @@
   text-align: start;
   color: #fff;
   padding: 30px;
+}
+.searchNotFound{
+  color: rgba(126, 86, 22, 0.904);
+  font-size:3em;
+}
+.btn-search{
+  margin-left: -4px;
+  color: rgb(20, 20, 20);
+  border-top-right-radius: .4em;
+  border-bottom-right-radius: .4em;
+  padding: 4.5px ;
+  text-align: center;
+  align-self:center;
 }
