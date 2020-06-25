@@ -19,10 +19,9 @@ class Movie extends Component {
       const isExist = this.props.watchlist.filter(
         (movie) => movie.movie_id === Number(this.props.match.params.id)
       );
-      console.log(isExist, "isee");
       this.setState({ isAdded: isExist.length });
     }
-    // this.setState({movie:this.props.movies.filter(movie=>movie.movie_id===Number(this.props.match.params.id))[0]})
+   
   }
   addWatchlist = () => {
     this.setState({ isClicked: false });
@@ -41,7 +40,6 @@ class Movie extends Component {
     );
   };
   render() {
-    console.log(this.props, "mov");
     return (
       <div className="moviepage-container p-4">
         {this.state.movie && (

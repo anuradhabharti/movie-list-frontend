@@ -7,7 +7,6 @@ import {fetchwatchlistMovies} from '../actions/movieAction'
 class LoginForm extends Component {
     state = {  }
     render() { 
-        console.log(this.state,"login")
         return ( 
             <div className="login-form">
                 <h3 className="login-title mx-auto">Login</h3>

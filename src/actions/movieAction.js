@@ -1,5 +1,6 @@
 import {FETCH_MOVIES,FETCH_WATCHLIST,ADD_MOVIE,REMOVE_MOVIE,SEARCH_MOVIE,} from './types';
 
+
 export const fetchMovies= (movie_type,page) => (dispatch) => {
   fetch(`/movies-app/movies/${movie_type}/${page}`,
       { 

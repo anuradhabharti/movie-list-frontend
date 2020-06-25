@@ -43,13 +43,18 @@ export const loginUser= (user,props)=>(dispatch)=>{
     .then(res=>res.json())
     .then(result=>{ 
       if(result.id){
+        alert("Account created successfull! Please login")
         props.history.push("/login")
       return dispatch({
       type:FETCH_USER,
       payload:result
     })}
+    else if(result==={}){
+      alert("Try again")
+      return;
+    }
     else{
-      alert(result)
+      alert(result);
       return;
     }
   })

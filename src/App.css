@@ -56,9 +56,14 @@
 
 }
 .movie-nav-btn{
+  color: rgb(22, 12, 12);
+  background-color: rgba(209, 202, 202, 0.952);
+  padding: 8px;
+  width: 10em;
+}
+.movie-nav-btn-clicked{
   color: #fff;
-  background-color: rgb(26, 10, 10);
-  border:rgb(71, 60, 60) solid .02px ;
+  background-color: rgba(110, 53, 36, 0.89);
   padding: 8px;
   width: 10em;
 }

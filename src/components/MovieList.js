@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchMovies } from "../actions/movieAction";
 class MovieList extends Component {
-  state = { isClicked: true, page: 1 };
+  state = { beforeClicked:"movie-nav-btn",afterClicked:"movie-nav-btn-clicked", page: 1 };
   componentDidMount() {
     this.props.fetchMovies(
       this.props.match.params.movie_type,
@@ -13,6 +13,7 @@ class MovieList extends Component {
     );
   }
   givePopularMovies() {
+    
     this.props.fetchMovies("popular", "1");
   }
   giveUpcomingMovies() {
@@ -25,13 +26,13 @@ class MovieList extends Component {
     this.props.fetchMovies(this.props.match.params.movie_type, page);
   }
   render() {
-    console.log(this.props, this.props.match.params.page, "movie");
     return (
       <div className="container-fluid">
         <div className="movie-list-navbar">
           <Link to="/movies/now_playing/1">
             <button
-              className={`movie-nav-btn now-playing-btn`}
+              className={this.state.afterClicked}
+              style={{ border:"rgb(71, 60, 60) 1px solid;"}}
               onClick={() => this.giveNowPlayingMovies()}
               checked="true"
             >
@@ -41,7 +42,7 @@ class MovieList extends Component {
           <Link to="/movies/upcoming/1">
             {" "}
             <button
-              className={`movie-nav-btn `}
+              className={this.state.beforeClicked}
               onClick={() => this.giveUpcomingMovies()}
             >
               Upcoming
@@ -50,7 +51,7 @@ class MovieList extends Component {
           <Link to="/movies/popular/1">
             {" "}
             <button
-              className={`movie-nav-btn `}
+              className={this.state.beforeClicked}
               onClick={() => this.givePopularMovies()}
             >
               Popular
